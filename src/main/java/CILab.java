@@ -13,11 +13,8 @@ public class CILab implements CILabInterface {
 
     @Override
     public boolean detectCapitalUse() {
-        if (myString == null) {
-            throw new IllegalArgumentException("The string cannot be null!");
-        }else if(myString.length() == 0){
+        if (myString == null || myString.isEmpty())
             return false;
-        }
 
         if(myString.equals(myString.toUpperCase())){
             return true;
@@ -39,9 +36,5 @@ public class CILab implements CILabInterface {
         }
     }
 
-    public static void main(String[] args){
-        CILab x = new CILab();
-        System.out.println(x.detectCapitalUse());
-    }
 }
 

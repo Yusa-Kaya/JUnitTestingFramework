@@ -18,6 +18,7 @@ public class CILabTest {
         myString = null;
     }
 
+    // Test when all characters except the first are lower case
     @Test
     public void detectCapitalUseTest1() {
        myString.setString("Hello");
@@ -26,6 +27,7 @@ public class CILabTest {
        assertEquals(expected, actual);
     }
 
+    // Test when all characters are upper case
     @Test
     public void detectCapitalUseTest2() {
         myString.setString("HELLO");
@@ -33,6 +35,8 @@ public class CILabTest {
         boolean actual = myString.detectCapitalUse();
         assertEquals(expected, actual);
     }
+
+    // Test when all characters are lower case
     @Test
     public void detectCapitalUseTest3() {
         myString.setString("hello");
@@ -41,6 +45,7 @@ public class CILabTest {
         assertEquals(expected, actual);
     }
 
+    // Test when the string is empty
     @Test
     public void detectCapitalUseTest4() {
         myString.setString("");
@@ -49,10 +54,21 @@ public class CILabTest {
         assertEquals(expected, actual);
     }
 
+    // Test when the string is null
     @Test
     public void detectCapitalUseTest5() {
-        assertThrows(IllegalArgumentException.class, () -> {
-            myString.detectCapitalUse();});
+        boolean expected = false;
+        boolean actual = myString.detectCapitalUse();
+        assertEquals(expected, actual);
+    }
+
+    // Test when there is wrong use of upper case.
+    @Test
+    public void detectCapitalUseTest6() {
+        myString.setString("hEllo");
+        boolean expected = false;
+        boolean actual = myString.detectCapitalUse();
+        assertEquals(expected, actual);
     }
 
 
