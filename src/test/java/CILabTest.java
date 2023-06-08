@@ -18,6 +18,14 @@ public class CILabTest {
         myString = null;
     }
 
+    @Test
+    public void getStringTest(){
+        myString.setString("Hello!");
+        String expected = "Hello!";
+        String actual = myString.getString();
+        assertEquals(expected, actual);
+    }
+
     // Test when all characters except the first are lower case
     @Test
     public void detectCapitalUseTest1() {
@@ -66,6 +74,15 @@ public class CILabTest {
     @Test
     public void detectCapitalUseTest6() {
         myString.setString("hEllo");
+        boolean expected = false;
+        boolean actual = myString.detectCapitalUse();
+        assertEquals(expected, actual);
+    }
+
+    // Test when there is wrong use of upper case.
+    @Test
+    public void detectCapitalUseTest7() {
+        myString.setString("HellO");
         boolean expected = false;
         boolean actual = myString.detectCapitalUse();
         assertEquals(expected, actual);
